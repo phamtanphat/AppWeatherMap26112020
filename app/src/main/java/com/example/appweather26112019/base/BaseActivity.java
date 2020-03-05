@@ -23,17 +23,22 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        layoutProgress = findViewById(getProgressLayout());
-        rotateLoading = layoutProgress.findViewById(R.id.rotateloading);
-        hideProgress();
+        if (getProgressLayout() > 0){
+            layoutProgress = findViewById(getProgressLayout());
+            rotateLoading = layoutProgress.findViewById(R.id.rotateloading);
+            hideProgress();
+        }
     }
     public void showProgress(){
-        layoutProgress.setVisibility(View.VISIBLE);
-        rotateLoading.start();
-
+        if(layoutProgress != null){
+            layoutProgress.setVisibility(View.VISIBLE);
+            rotateLoading.start();
+        }
     }
     public void hideProgress(){
-        layoutProgress.setVisibility(View.GONE);
-        rotateLoading.stop();
+        if(layoutProgress != null){
+            layoutProgress.setVisibility(View.GONE);
+            rotateLoading.stop();
+        }
     }
 }
