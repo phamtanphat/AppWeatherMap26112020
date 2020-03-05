@@ -38,4 +38,7 @@ dependencies {
 
     //Life cycle
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifecycleVersion"
+
+    // Loading progress
+    implementation "com.victor:lib:$rootProject.ext.loadingProgressVersion"
 }
