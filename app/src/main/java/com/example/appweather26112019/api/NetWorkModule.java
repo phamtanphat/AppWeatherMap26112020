@@ -38,7 +38,7 @@ public class NetWorkModule {
         Gson gson = new GsonBuilder().disableHtmlEscaping().setLenient().create();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.openweathermap.org/data/2.5/")
+                .baseUrl("https://api.openweathermap.org/data/2.5/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity{
                     Toast.makeText(MainActivity.this, tempCurrent.getMessage(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(MainActivity.this, tempCurrent.getMain().getTemp().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, String.valueOf(tempCurrent.getMain().getTemp()), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -89,7 +89,6 @@ public class MainActivity extends BaseActivity{
         mTvSearch.setOnClickListener(v -> mMainViewmodel.callWeatherLocation(
                 new WeatherSearchLocationForm(
                         mEdtSearchLocation.getText().toString().replaceAll(" ",""),
-                        AppConstant.MODE,
                         AppConstant.UNIT,
                         AppConstant.APPID
                 )));

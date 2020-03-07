@@ -25,7 +25,6 @@ public class WeatherRepository {
     public Observable<TempCurrent> getTempAtLocation(WeatherSearchLocationForm weatherSearchLocationForm) {
         return apiService.getTempAtLocation(
                 weatherSearchLocationForm.getQ(),
-                weatherSearchLocationForm.getMode(),
                 weatherSearchLocationForm.getUnits(),
                 weatherSearchLocationForm.getAppid());
     }

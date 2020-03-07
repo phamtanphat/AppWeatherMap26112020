@@ -11,7 +11,6 @@ public interface ApiService {
     @GET("weather")
     Observable<TempCurrent> getTempAtLocation(
             @Query("q") String q,
-            @Query("mode") String json,
             @Query("units") String units,
             @Query("appid") String appid);
 }

@@ -62,7 +62,7 @@ public class MainViewmodel extends ViewModel implements LifecycleObserver {
 
                     @Override
                     public void onError(Throwable e) {
-                        mError.setValue("City not found");
+                        mError.setValue(e.getMessage());
                         mLoading.setValue(false);
                     }
 
