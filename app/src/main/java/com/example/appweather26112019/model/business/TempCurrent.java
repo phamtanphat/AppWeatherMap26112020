@@ -14,6 +14,8 @@ public class TempCurrent {
 
     private List<Weather> weather = null;
 
+    private String message = null;
+
     private Main main;
 
     private Wind wind;
@@ -60,6 +62,14 @@ public class TempCurrent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
 

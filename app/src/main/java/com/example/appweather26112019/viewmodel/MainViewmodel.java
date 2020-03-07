@@ -26,12 +26,19 @@ public class MainViewmodel extends ViewModel implements LifecycleObserver {
     private MutableLiveData<String> mError;
     private MutableLiveData<Boolean> mLoading;
 
-    public MainViewmodel(WeatherRepository weatherRepository) {
+    public MainViewmodel() {
         this.weatherRepository = WeatherRepository.getInstance();
         this.mWeatherLocation = new MutableLiveData<>();
         this.mError = new MutableLiveData<>();
         this.mLoading = new MutableLiveData<>();
         this.compositeDisposable = new CompositeDisposable();
+    }
+
+    public LiveData<Boolean> isLoading(){
+        return mLoading;
+    }
+    public LiveData<String> isError(){
+        return mError;
     }
 
     public LiveData<TempCurrent> getWeatherLocationSuccess(){
@@ -55,7 +62,8 @@ public class MainViewmodel extends ViewModel implements LifecycleObserver {
 
                     @Override
                     public void onError(Throwable e) {
-                        mError.setValue(e.getMessage());
+                        mError.setValue("City not found");
+                        mLoading.setValue(false);
                     }
 
                     @Override

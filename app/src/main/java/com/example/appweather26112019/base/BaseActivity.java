@@ -17,6 +17,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int getLayoutId();
     protected abstract int getProgressLayout();
+    protected abstract void init();
+    protected abstract void mapview();
+    protected abstract void obserData();
+    protected abstract void setListener();
     private View layoutProgress;
     private RotateLoading rotateLoading;
     @Override
@@ -28,6 +32,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             rotateLoading = layoutProgress.findViewById(R.id.rotateloading);
             hideProgress();
         }
+        init();
+        mapview();
+        obserData();
+        setListener();
     }
     public void showProgress(){
         if(layoutProgress != null){
